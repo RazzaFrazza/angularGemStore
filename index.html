@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+  	<link rel="stylesheet" type="text/css" href="/Users/Server/Documents/Projects/angularGemStore/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+  	<ul class="list-group">
+  		<li class="list-group-item" ng-hide="product.soldOut" ng-repeat="product in store.product | limitTo:3 | orderBy:'-price' ">
+  			<h3> 
+  				{{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}
+  				{{product.name | uppercase}} 
+  				<em class="pull-right">{{product.price | currency }}</em>
+  				<img ng-src="product.images[0].full" />
+  				<p> {{product.description | limitTo:7}} </p>
+  				<button ng-show="product.canPurchase"> 
+  	   			Add to Cart</button>
+    		</h3>
+  		</li>
+ 	</ul>
+ 	</body>
+ </html>
